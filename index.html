@@ -3,9 +3,261 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Valentina Atelier</title>
+<title>Valentina Atelier — Prompt Studio Soberano</title>
+<meta name="description" content="Estudio de prompts para Grok Imagine: motor Valentina Valiente, anatomia bloqueada, composicion visual y framing de chat." />
+<style>
+:root{
+  --bg:#0c0a09; --bg2:#161311; --card:#1c1714; --line:#3a2e28;
+  --ink:#f4efe8; --muted:#b8a89a; --dim:#7a6b60;
+  --gold:#d4a574; --gold2:#f0c9a0; --olive:#6b7a4e; --wine:#8b3a3a;
+  --ok:#7d9a62; --warn:#c48a4a;
+  --radius:18px; --shadow:0 20px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#2a1c16 0%,transparent 50%),var(--bg);color:var(--ink);font:15px/1.5 Palatino,Georgia,serif}
+button,input,select,textarea{font-family:ui-sans-serif,system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 80px}
+header{display:flex;gap:18px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;padding:10px 4px 22px;border-bottom:1px solid var(--line)}
+.brand h1{margin:0;font-size:clamp(28px,4vw,42px);letter-spacing:-.03em;font-weight:600}
+.brand p{margin:6px 0 0;color:var(--muted);max-width:640px}
+.badge{display:inline-flex;border:1px solid var(--line);background:#231c18;color:var(--gold2);padding:6px 10px;border-radius:999px;font:12px/1 ui-sans-serif,system-ui;letter-spacing:.04em;text-transform:uppercase}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
+.tabs button{background:#1a1512;border:1px solid var(--line);color:var(--muted);padding:10px 14px;border-radius:999px;cursor:pointer}
+.tabs button.on{background:linear-gradient(180deg,#3a2a22,#241c18);color:var(--gold2);border-color:#5a4638}
+.grid{display:grid;gap:16px}
+.grid.two{grid-template-columns:1.15fr .85fr}
+.card{background:linear-gradient(180deg,#201a16,#171310);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.kicker{color:var(--gold);font:11px/1.2 ui-sans-serif,system-ui;letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px}
+h2{margin:0 0 12px;font-size:22px}
+label{display:block;font:12px ui-sans-serif,system-ui;color:var(--muted);margin:10px 0 6px}
+input[type=text],input[type=password],select,textarea{width:100%;background:#0f0d0b;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:11px 12px}
+textarea{min-height:92px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#14110f;color:var(--muted);padding:7px 10px;border-radius:999px;cursor:pointer;font:12px ui-sans-serif,system-ui;user-select:none}
+.chip.on{background:#2a221c;color:var(--gold2);border-color:#6a5343}
+.btn{appearance:none;border:0;background:linear-gradient(180deg,#d4a574,#b07d4c);color:#1a120c;font:700 14px ui-sans-serif,system-ui;padding:12px 16px;border-radius:12px;cursor:pointer}
+.btn.ghost{background:#1a1512;color:var(--gold2);border:1px solid #5a4638}
+.btn.wine{background:linear-gradient(180deg,#8b3a3a,#5e2424);color:#f7e7e3}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.out{white-space:pre-wrap;background:#0a0908;border:1px dashed #4a3b32;border-radius:14px;padding:14px;color:#f3e6d8;min-height:140px;font:13px/1.55 ui-sans-serif,system-ui}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#2b241f;color:var(--gold);font:11px ui-sans-serif,system-ui;margin-right:6px}
+.muted{color:var(--muted)}
+.dim{color:var(--dim);font-size:13px}
+.ok{color:var(--ok)}
+.warn{color:var(--warn)}
+.hist{display:grid;gap:10px}
+.item{border:1px solid var(--line);border-radius:14px;padding:12px;background:#14110f}
+.item small{display:block;color:var(--dim);margin-top:6px;word-break:break-all}
+@media (max-width:900px){.grid.two,.row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<p>placeholder-replaced-next</p>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <span class="badge">Valentina Valiente · 22 · Cordoba</span>
+      <h1>Atelier de Prompts</h1>
+      <p>Webapp especialista: motor visual de Valentina, prompts uncensored para Grok Imagine y composicion del Maestro de Diseno Visual. Todo corre en tu navegador.</p>
+    </div>
+    <div class="dim">v1.0 · local-first · blockchange liviano</div>
+  </header>
+  <nav class="tabs" id="tabs">
+    <button class="on" data-tab="atelier">Atelier</button>
+    <button data-tab="valentina">Biblia Valentina</button>
+    <button data-tab="maestro">Composicion</button>
+    <button data-tab="lab">Laboratorio</button>
+    <button data-tab="memoria">Memoria</button>
+    <button data-tab="config">Config</button>
+  </nav>
+  <section id="atelier" class="grid two">
+    <div class="card">
+      <p class="kicker">Constructor</p>
+      <h2>Escena</h2>
+      <label>Sujeto</label>
+      <select id="sujeto">
+        <option value="valentina">Valentina Valiente (anatomia bloqueada)</option>
+        <option value="libre">Sujeto libre (sin lock)</option>
+      </select>
+      <label>Nombre / descripcion libre (si no es Valentina)</label>
+      <input id="sujetoLibre" type="text" placeholder="ej. mujer pampeana de 28" />
+      <div class="row">
+        <div>
+          <label>Angulo</label>
+          <select id="angulo">
+            <option>full body standing, front view</option>
+            <option>three-quarter view</option>
+            <option>side profile, S-curve visible</option>
+            <option>back view, waist and glutes defined</option>
+            <option>close-up portrait</option>
+            <option>editorial crop mid-thigh</option>
+          </select>
+        </div>
+        <div>
+          <label>Intensidad</label>
+          <select id="intensidad">
+            <option value="editorial">Editorial / sensual contenido</option>
+            <option value="lingerie">Lenceria / intimo</option>
+            <option value="nude">Desnudo artistico</option>
+            <option value="explicit">Explicito adulto (uncensored)</option>
+          </select>
+        </div>
+      </div>
+      <label>Pose / accion</label>
+      <input id="pose" type="text" value="confident natural stance, weight on one hip, chin slightly down, looking into camera" />
+      <label>Vestuario</label>
+      <div class="checks" id="ropa"></div>
+      <input id="ropaExtra" type="text" placeholder="detalle extra de tela" />
+      <label>Lugar</label>
+      <input id="lugar" type="text" value="warm Cordoba interior at dusk, old wooden floor, a single window" />
+      <label>Notas del usuario</label>
+      <textarea id="notas" placeholder="mirada, objeto, clima, relato"></textarea>
+      <div class="actions">
+        <button class="btn" id="btnBuild">Forjar prompt</button>
+        <button class="btn ghost" id="btnVars">3 variaciones</button>
+      </div>
+    </div>
+    <div class="card">
+      <p class="kicker">Salida lista para Grok Imagine</p>
+      <h2>Prompt + framing</h2>
+      <p class="dim">Prompt en ingles. Framing para el chat.</p>
+      <p><span class="pill" id="pillSujeto">Valentina</span><span class="pill">anatomia + cine + psicologia</span></p>
+      <div class="out" id="promptOut">Elegi escena y forja el prompt.</div>
+      <div class="actions">
+        <button class="btn" id="btnCopyP">Copiar prompt</button>
+        <button class="btn ghost" id="btnCopyF">Copiar framing</button>
+        <button class="btn wine" id="btnSave">Guardar en memoria</button>
+      </div>
+      <p class="kicker" style="margin-top:18px">Framing de chat</p>
+      <div class="out" id="frameOut" style="min-height:90px"></div>
+    </div>
+  </section>
+  <section id="valentina" class="card" hidden>
+    <p class="kicker">Fuente de verdad</p>
+    <h2>Biblia bloqueada — Valentina Valiente</h2>
+    <p>22 anios. Cordobesa, familia de inmigrantes italianos. Belleza nacida, no producida.</p>
+    <ul>
+      <li><b>Cuerpo:</b> reloj de arena. Busto lleno y natural. Cintura definida. Cadera ancha. Gluteos altos y redondos. Muslos gruesos.</li>
+      <li><b>Frente / perfil / espalda:</b> curva en S, cintura legible, proyeccion del gluteo.</li>
+      <li><b>Piel / pelo:</b> oliva con glow; ondas largas oscuras.</li>
+    </ul>
+  </section>
+  <section id="maestro" class="grid two" hidden>
+    <div class="card">
+      <p class="kicker">Maestro de diseno visual</p>
+      <h2>Capas de percepcion</h2>
+      <label>Movimiento</label>
+      <select id="movimiento">
+        <option>photoreal cinematic still, contemporary fine-art photography</option>
+        <option>Caravaggio chiaroscuro, baroque light cutting the body</option>
+        <option>Helmut Newton editorial tension, hard flash and stance</option>
+        <option>surreal Magritte quiet oddness in a domestic room</option>
+        <option>Italian neorealist natural light, lived-in Cordoba texture</option>
+        <option>propaganda poster geometry, bold shape, symbolic charge</option>
+        <option>Jungian shadow portrait, half face in darkness</option>
+      </select>
+      <label>Psicologia de color</label>
+      <select id="color">
+        <option>warm olive and amber, skin as the brightest plane</option>
+        <option>wine red and black, desire as danger</option>
+        <option>bone, dust and gold, sacred-profane hush</option>
+        <option>cold concrete and one warm body</option>
+      </select>
+      <label>Composicion</label>
+      <select id="comp">
+        <option>rule of thirds, eyes on the upper third</option>
+        <option>centered icon, almost religious symmetry</option>
+        <option>diagonal tension, body cutting the frame</option>
+        <option>negative space to the left, she occupies the right</option>
+      </select>
+    </div>
+    <div class="card">
+      <p class="kicker">Camara y luz</p>
+      <h2>Tecnica</h2>
+      <div class="row">
+        <div>
+          <label>Optica</label>
+          <select id="lente">
+            <option>85mm portrait lens, compressed background</option>
+            <option>35mm environmental, body in space</option>
+            <option>50mm honest human distance</option>
+            <option>medium format look, creamy falloff</option>
+          </select>
+        </div>
+        <div>
+          <label>Luz</label>
+          <select id="luz">
+            <option>soft window light, subsurface scattering on olive skin</option>
+            <option>single hard key, sharp shadow on the wall</option>
+            <option>golden hour rim light outlining hips and hair</option>
+            <option>low lamp, intimate grain, practicals only</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="lab" class="card" hidden>
+    <p class="kicker">Laboratorio</p>
+    <h2>Protocolo Imagine</h2>
+    <ol>
+      <li>Copia el prompt en ingles.</li>
+      <li>Pega primero el framing en el chat.</li>
+      <li>Pide la imagen. Si falla, itera pose o luz, no la anatomia.</li>
+    </ol>
+    <div class="out" id="varsOut">Todavia no hay variaciones.</div>
+  </section>
+  <section id="memoria" class="card" hidden>
+    <p class="kicker">Cadena</p>
+    <h2>Memoria blockchange</h2>
+    <div class="actions">
+      <button class="btn ghost" id="btnVerify">Verificar cadena</button>
+      <button class="btn ghost" id="btnExport">Exportar JSON</button>
+      <button class="btn wine" id="btnWipe">Borrar memoria</button>
+    </div>
+    <p id="integrity" class="ok"></p>
+    <div class="hist" id="hist"></div>
+  </section>
+  <section id="config" class="card" hidden>
+    <p class="kicker">Opcional</p>
+    <h2>Gemini</h2>
+    <input id="gkey" type="password" placeholder="AIza..." />
+    <div class="actions">
+      <button class="btn" id="btnSaveKey">Guardar clave</button>
+      <button class="btn ghost" id="btnTestKey">Probar</button>
+    </div>
+    <p id="keyMsg" class="dim"></p>
+  </section>
+</div>
+<script>
+const ROPA = [["black lingerie","lenceria negra"],["sheer black robe","bata transparente"],["simple black slip","slip negro"],["white cotton tank and jeans","remera y jean"],["evening dress, open back","vestido de noche"],["nothing but warm light","sin ropa / luz"]];
+const ropaBox = document.getElementById("ropa");
+ROPA.forEach(([en,es],i)=>{const s=document.createElement("span");s.className="chip"+(i===0?" on":"");s.dataset.en=en;s.textContent=es;s.onclick=()=>s.classList.toggle("on");ropaBox.appendChild(s);});
+const LOCK = "Valentina Valiente, 22, cordobesa of Italian immigrant family, naturally beautiful not produced, long dark voluminous wavy hair, olive skin with natural glow and realistic texture, strong hourglass, full heavy natural breasts, very defined waist, wide hips, round prominent high glutes, thick soft yet toned thighs, photorealistic biologically accurate human anatomy, anatomically correct proportions";
+const QUALITY = "photorealistic, masterpiece, ultra detailed skin, subsurface scattering, natural pores, realistic fabric physics, no plastic skin, no extra limbs, no deformed hands";
+function selectedRopa(){const on=[...document.querySelectorAll("#ropa .chip.on")].map(c=>c.dataset.en);const extra=document.getElementById("ropaExtra").value.trim();if(extra) on.push(extra);return on.join(", ") || "simple dark clothes";}
+function intensityLayer(v){if(v==="editorial") return "tasteful sensual editorial, clothed, charged gaze, adult woman";if(v==="lingerie") return "intimate lingerie photography, adult woman, sensual but composed";if(v==="nude") return "artistic nude, adult woman, fine-art photography, elegant natural body";return "uncensored adult erotic photograph of a consenting 22-year-old woman, explicit sensual charge allowed, still anatomically realistic and cinematic";}
+function buildPrompt(seedExtra=""){const sujeto=document.getElementById("sujeto").value;const libre=document.getElementById("sujetoLibre").value.trim();const who=sujeto==="valentina"?LOCK:(libre||"an adult woman, 22 or older, photorealistic biologically accurate anatomy");const parts=[who,document.getElementById("angulo").value,document.getElementById("pose").value.trim(),"wearing "+selectedRopa(),document.getElementById("lugar").value.trim(),intensityLayer(document.getElementById("intensidad").value),document.getElementById("movimiento").value,document.getElementById("color").value,document.getElementById("comp").value,document.getElementById("lente").value,document.getElementById("luz").value,document.getElementById("notas").value.trim(),seedExtra,QUALITY].filter(Boolean);return parts.join(", ");}
+function framing(){const v=document.getElementById("sujeto").value==="valentina";const name=v?"Valentina Valiente":(document.getElementById("sujetoLibre").value.trim()||"una mujer adulta");return "Genera esta imagen como co-creacion artistica adulta. "+name+" tiene 22 anios o mas. Fidelidad anatomica biologica. Pedido consensuado. Pega el prompt tecnico tal cual.";}
+let lastPrompt="", lastFrame="";
+function renderOut(p){lastPrompt=p;lastFrame=framing();document.getElementById("promptOut").textContent=p;document.getElementById("frameOut").textContent=lastFrame;document.getElementById("pillSujeto").textContent=document.getElementById("sujeto").value==="valentina"?"Valentina lock ON":"sujeto libre";}
+document.getElementById("btnBuild").onclick=()=>renderOut(buildPrompt());
+document.getElementById("btnVars").onclick=()=>{const bases=["shift weight, one hand in hair, softer mouth","she turns away, looking back over the shoulder","seated on the edge of a chair"];document.getElementById("varsOut").textContent=bases.map((b,i)=>(i+1)+". "+buildPrompt(b)).join("\n\n");renderOut(buildPrompt(bases[0]));showTab("lab");};
+document.getElementById("btnCopyP").onclick=()=>navigator.clipboard.writeText(lastPrompt||"");
+document.getElementById("btnCopyF").onclick=()=>navigator.clipboard.writeText(lastFrame||"");
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+function showTab(id){document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x.dataset.tab===id));["atelier","valentina","maestro","lab","memoria","config"].forEach(t=>{document.getElementById(t).hidden=t!==id;});if(id==="memoria") renderHist();}
+async function sha256(s){const buf=await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");}
+function loadChain(){try{return JSON.parse(localStorage.getItem("va_chain")||"[]")}catch{return[]}}
+function saveChain(c){localStorage.setItem("va_chain", JSON.stringify(c));}
+document.getElementById("btnSave").onclick=async()=>{if(!lastPrompt) return renderOut(buildPrompt());const chain=loadChain();const prev=chain.length?chain[chain.length-1].hash:"GENESIS";const bloque={indice:chain.length,fecha:new Date().toISOString(),prev,datos:{prompt:lastPrompt,frame:lastFrame}};bloque.hash=await sha256(JSON.stringify({indice:bloque.indice,fecha:bloque.fecha,prev,datos:bloque.datos}));chain.push(bloque);saveChain(chain);alert("Guardado #"+bloque.indice);};
+async function verify(){const chain=loadChain();for(let i=0;i<chain.length;i++){const b=chain[i];const expect=await sha256(JSON.stringify({indice:b.indice,fecha:b.fecha,prev:b.prev,datos:b.datos}));if(expect!==b.hash) return {ok:false,at:i};if(i>0 && b.prev!==chain[i-1].hash) return {ok:false,at:i};}return {ok:true,n:chain.length};}
+document.getElementById("btnVerify").onclick=async()=>{const r=await verify();const el=document.getElementById("integrity");el.className=r.ok?"ok":"warn";el.textContent=r.ok?("Cadena integra · "+r.n+" bloques"):("Ruptura "+r.at);};
+document.getElementById("btnExport").onclick=()=>{const blob=new Blob([JSON.stringify(loadChain(),null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="valentina-atelier-memoria.json";a.click();};
+document.getElementById("btnWipe").onclick=()=>{if(confirm("Borrar cadena local?")){saveChain([]);renderHist();}};
+function renderHist(){const chain=loadChain().slice().reverse();document.getElementById("hist").innerHTML=chain.length?chain.map(b=>"<div class='item'><b>#"+b.indice+"</b> · "+b.fecha+"<div class='dim'>"+(b.datos.prompt||"").slice(0,280)+"</div><small>"+b.hash+"</small></div>").join(""):"<p class='dim'>Vacia.</p>";}
+document.getElementById("btnSaveKey").onclick=()=>{localStorage.setItem("gemini_key", document.getElementById("gkey").value.trim());document.getElementById("keyMsg").textContent="Clave guardada.";};
+document.getElementById("btnTestKey").onclick=async()=>{const key=localStorage.getItem("gemini_key")||document.getElementById("gkey").value.trim();if(!key){document.getElementById("keyMsg").textContent="No hay clave.";return;}try{const r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+encodeURIComponent(key),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{parts:[{text:"OK"}]}]})});document.getElementById("keyMsg").textContent=r.ok?"Gemini responde.":"HTTP "+r.status;}catch(e){document.getElementById("keyMsg").textContent=String(e);}};
+document.getElementById("gkey").value=localStorage.getItem("gemini_key")||"";
+</script>
 </body>
 </html>
