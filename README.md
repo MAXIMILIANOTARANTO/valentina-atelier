@@ -1,2 +1,5 @@
-# valentina-atelier
-Webapp especialista: Valentina Valiente + Grok Imagine uncensored prompt master + Maestro de diseno visual. Single-file, local-first.
+# Valentina Atelier
+
+Webapp single-file para forjar prompts de Grok Imagine con biblia Valentina Valiente, prompt master uncensored y Maestro de Diseno Visual.
+
+Abrir index.html. Activar GitHub Pages: Settings > Pages > main / root.
